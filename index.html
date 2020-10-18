@@ -14,15 +14,16 @@
     <div id="container">
         <main>
             <form id="signup" method="post">
-                <input type="text">
-                <input type="password">
-                <input type="password">
+                <input type="text" id="createMail">
+                <input type="password" id="createPass">
+                <input type="password" id="repeated">
                 <input type="submit">
+                <button id="redirect"></button>
             </form>
             <br>
             <form id="signin" method="post">
-                <input type="text">
-                <input type="password">
+                <input type="text" id="mail">
+                <input type="password" id="pass">
                 <input type="submit">
             </form>
         </main>
@@ -44,9 +45,8 @@
         };
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+        const db = firebase.firestore();
         const auth = firebase.auth();
-        const firestore = firebase.firestore();
-        db.settings({timestampsInSnapshots: true});
     </script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
