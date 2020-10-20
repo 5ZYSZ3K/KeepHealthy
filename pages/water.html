@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#E4C800">
+    <title>Keep Healthy - water</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/images/icons/icon-96x96.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#E4C800">
+</head>
+<body>
+    <div id="container">
+        <main>
+            <button id="logout">Log out</button>
+        </main>
+        <nav>
+            <div class="option">
+                <a href="/pages/main.html">Main</a>
+            </div>
+            <div class="option">
+                <a href="/pages/food.html">Food</a>
+            </div>
+            <div class="option">
+                <a href="/pages/water.html">Water</a>
+            </div>
+            <div class="option">
+                <a href="/pages/pills.html">Pills</a>
+            </div>
+            <div class="option">
+                <a href="/pages/option1.html">Option1</a>
+            </div>
+            <div class="option">
+                <a href="/pages/option2.html">Option2</a>
+            </div>
+        </nav>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyD9zzJRxYMuIytUyp6FSJRroOnkDsoDOGQ",
+            authDomain: "keephealthy-b37bb.firebaseapp.com",
+            databaseURL: "https://keephealthy-b37bb.firebaseio.com",
+            projectId: "keephealthy-b37bb",
+            storageBucket: "keephealthy-b37bb.appspot.com",
+            messagingSenderId: "288571643327",
+            appId: "1:288571643327:web:0643e976859ed2ea647d0a",
+            measurementId: "G-M0ZC195KW6"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+    </script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/authenticator.js"></script>
+</body>
+</html>
