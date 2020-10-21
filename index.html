@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +12,22 @@
 </head>
 <body>
     <div id="container">
-        <main>
-            <form id="signup" method="post">
-                <input type="text" id="createMail">
-                <input type="password" id="createPass">
-                <input type="password" id="repeated">
-                <input type="submit">
-            </form>
-            <br>
+        <main id="login">
             <form id="signin" method="post">
-                <input type="text" id="mail">
-                <input type="password" id="pass">
-                <input type="submit">
+                <input type="text" id="mail"><br>
+                <input type="password" id="pass"><br>
+                <input type="submit"><br>
             </form>
+            <button class="change">Or, sign up</button>
+        </main>
+        <main id="register">
+            <form id="signup" method="post">
+                <input type="text" id="createMail"><br>
+                <input type="password" id="createPass"><br>
+                <input type="password" id="repeated"><br>
+                <input type="submit"><br>
+            </form>
+            <button class="change">Or, log in</button>
         </main>
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
@@ -47,6 +50,7 @@
         const db = firebase.firestore();
         const auth = firebase.auth();
     </script>
+    <script src="/scripts/auth-ui.js"></script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
 </body>

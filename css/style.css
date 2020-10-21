@@ -5,6 +5,17 @@ body{
 input, button, select{
     font-family: Bradley Hand ITC;
 }
+form{
+    display: block;
+    margin-top: 30%;
+}
+form input, .change{
+    background-color: #99D9EA;
+    margin-bottom: 2vh;
+    border: 3px solid #4DA1A9;
+    font-size: 2rem;
+    border-radius: 2vh;
+}
 #container{
     display: flex;
     flex-direction: row;
@@ -29,7 +40,7 @@ input, button, select{
     border: 10px solid #F70;
     display: none;
 }
-span {
+#hamburger span {
     height: 8px;
     width: 60px;
     background-color: #000;
@@ -143,9 +154,11 @@ a{
 nav, main{
     width: 50%;
     height: 100%;
+    box-sizing: border-box;
 }
 main{
     text-align: center;
+    padding-top: 3%;
 }
 .info-half{
     box-sizing: border-box;
@@ -157,6 +170,9 @@ main{
     border-radius: 2vh;
     display: block;
     margin-bottom: 4vh;
+}
+.regular-row .shorter-input{
+    width: 30%;
 }
 .info-center{
     width: 84%;
@@ -214,6 +230,17 @@ h6, select{
     margin: 0;
     display: inline;
 }
+.regular-row .singular-row .double-row{
+    width: 40%;
+}
+span{
+    display: inline-block;
+}
+.info-center input[type="radio"]{
+    display: inline;
+    width: auto;
+    float: none;
+}
 #add-ingredient{
     border: 3px solid #4DA1A9;
     background-color: #99D9EA;
@@ -242,6 +269,9 @@ h6, select{
     outline: none;
     margin-bottom: 3vh;
 }
+.end-btn{
+    margin-bottom: 0;
+}
 select{
     background-color: #FFF557;
     border: 2px solid #4DA1A9;
@@ -265,6 +295,9 @@ nav{
 .v2{
     height: calc(38%/3);
 }
+.change{
+    display: none;
+}
 @media(max-width: 1600px){
     .option{
         width: 48%;
@@ -278,6 +311,9 @@ nav{
     }
 }
 @media(max-width: 1100px){
+    .change{
+        display: inline-block;
+    }
     #container main{
         width: 100%;
     }
@@ -285,7 +321,112 @@ nav{
         width: 100%;
         display: none;
     }
+    #register{
+        display: none;
+    }
     #hamburger{
         display: block;
+    }
+}
+@media(max-width: 800px){
+    .heading{
+        margin-bottom: 1.5vh;
+        font-size: 1.6rem;
+    }
+    .info-center{
+        margin-bottom: 1.5vh;
+    }
+    .info-half{
+        margin-bottom: 1.5vh;
+    }
+    p, h6, select{
+        margin-block-start: 0.5rem;
+        margin-block-end: 0.5rem;
+    }
+    #hamburger {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        border: 5px solid #FF7404;
+    }
+    #hamburger span {
+        height: 4px;
+        width: 30px;
+        background-color: #000;
+        position: absolute;
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    #hamburger .first {
+        top: 12.5px;
+        left: 10px;
+    }
+    #hamburger .second {
+        top: 22.5px;
+        left: 10px;
+    }
+    #hamburger .third {
+        top: 32.5px;
+        left: 10px;
+    }
+    #hamburger .first2 {
+        -webkit-transform: translateY(10px) rotate(45deg);
+        -ms-transform: translateY(10px) rotate(45deg);
+        transform: translateY(10px) rotate(45deg);
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    #hamburger .third2 {
+        -webkit-transform: translateY(-10px) rotate(-45deg);
+        -ms-transform: translateY(-10px) rotate(-45deg);
+        transform: translateY(-10px) rotate(-45deg);
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    .singular-row .double-row{
+        width: 60%;
+        float: right;
+    }
+}
+@media(max-width: 550px){
+    #container{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #notify{
+        margin-top: 20%;
+    }
+    nav{
+        padding-top: 12%;
+    }
+}
+@media(max-width: 420px){
+    p, h6, select, .regular-row{
+        font-size: 1.2rem;
+    }
+    .regular-row input{
+        width: 25%;
+    }
+    form input[type="text"], form input[type="password"]{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        box-sizing: border-box;
+    }
+}
+@media(max-width: 370px){
+    p, h6, select, .regular-row{
+        font-size: 1rem;
+    }
+    .singular-row{
+        display: inline-block;
+        width: 100%;
     }
 }

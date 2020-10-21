@@ -47,16 +47,21 @@
             <div class="info-center">
                 <div class="regular-row">Nazwa: <input type="text"></div> 
                 <div class="regular-row">
-                    Ilość (g): <input type="number" class="double-row">
-                    , Składnik: 
-                    <select name="food-type" class="double-row">
-                        <option>arbuz</option>
-                        <option>ananas</option>
-                    </select>
+                    <div class="singular-row">
+                       Ilość (g): <input type="number" class="double-row"> 
+                    </div>
+                    <div class="singular-row">
+                        <span>Składnik:</span> 
+                        <select name="food-type" class="double-row">
+                            <option>arbuz</option>
+                            <option>ananas</option>
+                        </select>
+                    </div>
+                    
                     <button id="add-ingredient">Dodaj kolejny składnik</button>
                 </div> 
             </div>
-            <button class="send-form">DODAJ</button>
+            <button class="send-form end-btn">DODAJ</button>
         </main>
         <nav>
             <div class="option" id="water">
@@ -102,5 +107,6 @@
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
     <script src="/scripts/ui.js"></script>
+    <script src="/scripts/ui-food.js"></script>
 </body>
 </html>

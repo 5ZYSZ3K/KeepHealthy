@@ -59,10 +59,10 @@ auth.onAuthStateChanged(function(user){
             godzina_zakonczenia: "",
             co_ile: ""
         }).then( () => {
-            window.location = '/pages/main.html';
+            window.location = '/pages/settings.html';
         })
     }else if (user && (window.location.pathname === '/' || window.location.pathname === '/index.html')){
-        window.location = '/pages/main.html';
+        window.location = '/pages/settings.html';
     }
     else if (!(user) && window.location.pathname !== '/index.html' && window.location.pathname !== '/') {
         window.location = '/index.html';
@@ -83,4 +83,3 @@ if(logOut){
         })
     })
 }
-const redirect = document.getElementById('redirect') || null;
