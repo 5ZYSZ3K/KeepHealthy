@@ -25,7 +25,7 @@ auth.onAuthStateChanged(function(user){
         userLogged = user;
     }
     if (user && (window.location.pathname === '/' || window.location.pathname === '/index.html')){
-        window.location = '/pages/main.html';
+        window.location = '/pages/settings.html';
     }
     else if (!(user) && window.location.pathname !== '/index.html' && window.location.pathname !== '/') {
         window.location = '/index.html';
@@ -43,7 +43,3 @@ if(logOut){
         })
     })
 }
-const redirect = document.getElementById('redirect') || null;
-redirect.addEventListener('click', () => {
-    window.location.href = "/pages/main.html";
-});

@@ -12,27 +12,55 @@
 </head>
 <body>
     <div id="container">
+        <div id="hamburger">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </div>
         <main>
-            <button id="logout">Log out</button>
+            <div class="heading">HISTORIA</div>
+            <br>
+            <div class="info-half">
+                <h6>Dzisiaj</h6>
+                <p>Ilosc: XXX l</p>
+                <p>Cukier: XXXg</p>
+            </div>
+            <div class="info-half">
+                <select name="water-date" id="water-date">
+                    <option>20-10-2020</option>
+                    <option>19-10-2020</option>
+                </select>
+                <p>Ilosc: XXX l</p>
+                <p>Cukier: XXXg</p>
+            </div>
+            <div class="line"></div>
+            <div class="heading">DODAJ NAPÓJ</div>
+            <br>
+            <div class="info-center">
+                <div class="regular-row">Rodzaj: <input type="text"></div> 
+                <div class="regular-row">Ilość: <input type="text"></div> 
+                <div class="regular-row">Dodatkowy cukier: <input type="text"></div> 
+            </div>
+            <button class="send-form">DODAJ</button>
         </main>
         <nav>
-            <div class="option">
-                <a href="/pages/main.html">Main</a>
+            <div class="option" id="water">
+                <a href="/pages/water.html"></a>
             </div>
-            <div class="option">
-                <a href="/pages/food.html">Food</a>
+            <div class="option" id="notifications">
+                <a href="/pages/notifications.html" id="notifications"></a>
             </div>
-            <div class="option">
-                <a href="/pages/water.html">Water</a>
+            <div class="option v2" id="authors">
+                <a href="/pages/authors.html" id="authors"></a>
             </div>
-            <div class="option">
-                <a href="/pages/pills.html">Pills</a>
+            <div class="option" id="food">
+                <a href="/pages/food.html" id="food"></a>
             </div>
-            <div class="option">
-                <a href="/pages/option1.html">Option1</a>
+            <div class="option" id="pressure">
+                <a href="/pages/pressure.html" id="pressure"></a>
             </div>
-            <div class="option">
-                <a href="/pages/option2.html">Option2</a>
+            <div class="option v2" id="settings">
+                <a href="/pages/settings.html" id="settings"></a>
             </div>
         </nav>
     </div>
@@ -58,5 +86,6 @@
     </script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
+    <script src="/scripts/ui.js"></script>
 </body>
 </html>
