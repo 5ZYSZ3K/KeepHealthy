@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#E4C800">
-    <title>Keep Healthy - pills</title>
+    <title>Keep Healthy - notifications</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/images/icons/icon-96x96.png">
@@ -18,9 +18,15 @@
             <span class="third"></span>
         </div>
         <main>
-            <div class="heading">USTAW PRZYPOMNIENIA O WODZE</div>
+            <div class="heading" id="notify">USTAW PRZYPOMNIENIA O WODZE</div>
             <div class="info-center">
-                <div class="regular-row">Włącz przypomnienia: <input type="checkbox"></div>
+                <div class="regular-row">
+                    <label class="custom-checkbox" for="check">
+                        Włącz przypomnienia: 
+                        <input type="checkbox" id="check">
+                        <span></span>
+                    </label>
+                </div>
                 <div class="regular-row">Godziny przypomnień: od:<input type="number" class='double-row'> do:<input type="number" class='double-row'></div>
                 <div class="regular-row">Częstotliwość przypomnień(h): <input type="text" class="shorter-input"></div>
             </div>

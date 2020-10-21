@@ -18,7 +18,7 @@
             <span class="third"></span>
         </div>
         <main>
-            <button id="logout" class="send-form">Log out</button>
+            <button id="logout" class="send-form">Wyloguj</button>
             <div class="line"></div>
             <div class="heading">STYL</div>
             <div class="line"></div>
@@ -29,8 +29,20 @@
                 <div class="regular-row">Wzrost: <input type="text"></div>
                 <div class="regular-row">Waga: <input type="text"></div>
                 <div class="regular-row">Wiek: <input type="text"></div>
-                <div class="regular-row">Płeć: <label for="woman">Kobieta</label><input type="radio" id="woman" name="gender"><label for="man"> Mężczyzna</label><input type="radio" name="gender" id="man"></div>
+                <div class="regular-row">Płeć: 
+                    <label for="woman" class="custom-checkbox">
+                        Kobieta
+                        <input type="radio" id="woman" name="gender">
+                        <span></span>
+                    </label>
+                    <label for="man" class="custom-checkbox"> 
+                        Mężczyzna
+                        <input type="radio" name="gender" id="man">
+                        <span></span>
+                    </label>
+                </div>
             </div>
+            <div class="line"></div>
             <button class="send-form">ZMIEŃ</button>
         </main>
         <nav>
