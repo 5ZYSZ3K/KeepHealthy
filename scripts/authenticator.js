@@ -67,9 +67,6 @@ auth.onAuthStateChanged(function(user){
     else if (!(user) && window.location.pathname !== '/index.html' && window.location.pathname !== '/') {
         window.location = '/index.html';
     }
-    if (user){
-        userLogged = user;
-    }
 });
 const logOut = document.getElementById('logout') || null;
 if(logOut){

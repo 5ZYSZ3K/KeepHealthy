@@ -20,15 +20,12 @@
         <main>
             <div class="heading" id="notify">USTAW PRZYPOMNIENIE</div>
             <div class="info-center">
-                <div class="regular-row">Nazwa: <input type="text"></div>
-                <div class="regular-row">Godzina: <input type="text"></div>
+                <div class="regular-row">Nazwa: <input type="text" id="name"></div>
+                <div class="regular-row">Godzina: <input type="time" id="hour"></div>
             </div>
-            <button class="send-form">DODAJ</button>
+            <button class="send-form" id="add-notify">DODAJ</button>
             <div class="heading">LISTA TWOICH PRZYPOMNIEŃ</div>
-            <div class="info-center">
-                <div class="regular-row">Nazwa: XXXX, godzina: XXXX</div>
-                <div class="regular-row">Nazwa: XXXX, godzina: XXXX</div>
-            </div>
+            <div class="info-center" id="notify-list"></div>
             <div class="line"></div>
             <a href="/pages/notifications2.html" class="send-form button-link">Więcej ustawień</a>
         </main>
@@ -56,6 +53,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
     <script>
         var firebaseConfig = {
@@ -71,10 +69,12 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         const db = firebase.firestore();
+        const messaging = firebase.messaging();
         const auth = firebase.auth();
     </script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
+    <script src="/scripts/notifications.js"></script>
     <script src="/scripts/ui.js"></script>
 </body>
 </html>

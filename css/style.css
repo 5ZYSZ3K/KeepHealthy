@@ -247,7 +247,7 @@ span{
     width: auto;
     float: none;
 }
-#add-ingredient{
+.button-inline{
     border: 3px solid #4DA1A9;
     background-color: #99D9EA;
     font-size: 1.2rem;
