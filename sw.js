@@ -1,5 +1,5 @@
-const assets = 'assets-v16';
-const assetsDyn = 'assetsDyn-v16';
+const assets = 'assets-v6';
+const assetsDyn = 'assetsDyn-v6';
 
 self.addEventListener('install', e => {
     e.waitUntil(

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#E4C800">
-    <title>Keep Healthy - option2</title>
+    <title>Keep Healthy - notifications</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/images/icons/icon-96x96.png">
@@ -12,27 +12,44 @@
 </head>
 <body>
     <div id="container">
+        <div id="hamburger">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </div>
         <main>
-            <button id="logout">Log out</button>
+            <div class="heading">USTAW PRZYPOMNIENIE</div>
+            <div class="info-center">
+                <div class="regular-row">Nazwa: <input type="text" id="name"></div>
+                <div class="regular-row">Godzina: <input type="text" id="time"></div>
+            </div>
+            <button class="send-form" id="send">DODAJ</button>
+            <div class="heading">LISTA TWOICH PRZYPOMNIEŃ</div>
+            <div class="info-center">
+                <div class="regular-row">Nazwa: XXXX, godzina: XXXX</div>
+                <div class="regular-row">Nazwa: XXXX, godzina: XXXX</div>
+            </div>
+            <div class="line"></div>
+            <a href="/pages/notifications2.html" class="send-form button-link">Więcej ustawień</a>
         </main>
         <nav>
-            <div class="option">
-                <a href="/pages/main.html">Main</a>
+            <div class="option" id="water">
+                <a href="/pages/water.html"></a>
             </div>
-            <div class="option">
-                <a href="/pages/food.html">Food</a>
+            <div class="option" id="notifications">
+                <a href="/pages/notifications.html" id="notifications"></a>
             </div>
-            <div class="option">
-                <a href="/pages/water.html">Water</a>
+            <div class="option v2" id="authors">
+                <a href="/pages/authors.html" id="authors"></a>
             </div>
-            <div class="option">
-                <a href="/pages/pills.html">Pills</a>
+            <div class="option" id="food">
+                <a href="/pages/food.html" id="food"></a>
             </div>
-            <div class="option">
-                <a href="/pages/option1.html">Option1</a>
+            <div class="option" id="pressure">
+                <a href="/pages/pressure.html" id="pressure"></a>
             </div>
-            <div class="option">
-                <a href="/pages/option2.html">Option2</a>
+            <div class="option v2" id="settings">
+                <a href="/pages/settings.html" id="settings"></a>
             </div>
         </nav>
     </div>
@@ -58,5 +75,7 @@
     </script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
+    <script src="/scripts/ui.js"></script>
+    <script src="/scripts/notifications.js"></script>
 </body>
 </html>

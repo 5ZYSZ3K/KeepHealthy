@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#E4C800">
-    <title>Keep Healthy - food</title>
+    <title>Keep Healthy - pressure</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/images/icons/icon-96x96.png">
@@ -18,49 +18,25 @@
             <span class="third"></span>
         </div>
         <main>
-            <div class="heading">HISTORIA</div>
-            <br>
-            <div class="info-half">
-                <select name="food-date">
+            <div class="heading">HISTORIA</div><br>
+            <div class="info-center">
+                <select name="pressure-date" id="pressure-date">
                     <option>20-10-2020</option>
                     <option>19-10-2020</option>
                 </select>
-                <p>Kalorie: XXXX kcal</p>
-                <p>Bialko: XXXX g</p>
-                <p>Tłuszcz: XXXX g</p>
-                <p>Węglowodany: XXXX g</p>
-            </div>
-            <div class="info-half">
-                <p class="last">Ostatni</p>
-                <select name="food-date">
-                    <option>20-10-2020</option>
-                    <option>19-10-2020</option>
-                </select>
-                <p>Kalorie: XXXX kcal</p>
-                <p>Bialko: XXXX g</p>
-                <p>Tłuszcz: XXXX g</p>
-                <p>Węglowodany: XXXX g</p>
+                <p>Godzina: XX:XX</p>
+                <p>Ciśnienie: XXX/XX</p>
+                <p>Puls: XX</p>
             </div>
             <div class="line"></div>
-            <div class="heading">DODAJ POSIŁEK</div>
+            <div class="heading">DODAJ POMIAR</div>
             <br>
             <div class="info-center">
-                <div class="regular-row">Nazwa: <input type="text" id="name"></div> 
-                <div class="regular-row">
-                    <div class="singular-row">
-                       Ilość (g): <input type="number" class="double-row gram"> 
-                    </div>
-                    <div class="singular-row">
-                        <span>Składnik:</span> 
-                        <select name="food-type" class="double-row food-type">
-                            
-                        </select>
-                    </div>
-                    
-                    <button id="add-ingredient">Dodaj kolejny składnik</button>
-                </div> 
+                <div class="regular-row">Godzina: <input type="text" id="time"></div> 
+                <div class="regular-row">Ciśnienie: <input type="text" id="pressure2"></div> 
+                <div class="regular-row">Puls: <input type="number" id="pulse"></div> 
             </div>
-            <button class="send-form end-btn" id="send">DODAJ</button>
+            <button class="send-form" id="send">DODAJ</button>
         </main>
         <nav>
             <div class="option" id="water">
@@ -106,6 +82,6 @@
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
     <script src="/scripts/ui.js"></script>
-    <script src="/scripts/ui-food.js"></script>
+    <script src="/scripts/pressure.js"></script>
 </body>
 </html>

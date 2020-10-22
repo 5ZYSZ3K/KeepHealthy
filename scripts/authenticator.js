@@ -48,13 +48,12 @@ auth.onAuthStateChanged(function(user){
             cisnienie: "",
             puls: ""
         });
-        db.collection(userId).doc('Przypomnienia').collection('Zwykle').doc('1').set({
+        db.collection(userId).doc('Przypomnienia').collection('Zwykle').doc(date).set({
             nazwa: "",
             godzina: ""
         });
         db.collection(userId).doc('Przypomnienia').collection('Wiecej').doc('1').set({
             woda: false,
-            ilosc_dziennie: "",
             godzina_rozpoczecia: "",
             godzina_zakonczenia: "",
             co_ile: ""
