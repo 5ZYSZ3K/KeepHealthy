@@ -20,35 +20,30 @@
         <main>
             <div class="heading">HISTORIA</div>
             <br>
-            <div class="info-half">
-                <select name="food-date">
-                    <option>20-10-2020</option>
-                    <option>19-10-2020</option>
-                </select>
-                <p>Kalorie: XXXX kcal</p>
-                <p>Bialko: XXXX g</p>
-                <p>Tłuszcz: XXXX g</p>
-                <p>Węglowodany: XXXX g</p>
+            <div class="info-half" id="today">
+                <p class="last">Dzisiaj</p>
+                <p>Kalorie: kcal</p>
+                <p>Bialko: g</p>
+                <p>Tłuszcz: g</p>
+                <p>Węglowodany: g</p>
             </div>
-            <div class="info-half">
-                <p class="last">Ostatni</p>
-                <select name="food-date">
-                    <option>20-10-2020</option>
-                    <option>19-10-2020</option>
+            <div class="info-half" id="food-field">
+                <select name="food-date" id="food-date">
+
                 </select>
-                <p>Kalorie: XXXX kcal</p>
-                <p>Bialko: XXXX g</p>
-                <p>Tłuszcz: XXXX g</p>
-                <p>Węglowodany: XXXX g</p>
+                <p>Kalorie: kcal</p>
+                <p>Bialko: g</p>
+                <p>Tłuszcz: g</p>
+                <p>Węglowodany: g</p>
             </div>
             <div class="line"></div>
             <div class="heading">DODAJ POSIŁEK</div>
             <br>
             <div class="info-center">
-                <div class="regular-row">Nazwa: <input type="text"></div> 
+                <div class="regular-row">Nazwa: <input type="text" id="name"></div> 
                 <div class="regular-row">
                     <div class="singular-row">
-                       Ilość (g): <input type="number" class="double-row"> 
+                       Ilość (g): <input type="number" class="double-row gram"> 
                     </div>
                     <div class="singular-row">
                         <span>Składnik:</span> 

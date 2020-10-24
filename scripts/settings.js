@@ -10,7 +10,7 @@ auth.onAuthStateChanged(function(user){
         db.collection(userId).doc('Dane_ogolne').onSnapshot((doc) => {
             height.value = doc.data().wzrost;
             weight.value = doc.data().waga;
-            wiek.value = doc.data().age;
+            age.value = doc.data().wiek;
             if(doc.data().plec === 'M') gender[0].checked = true;
             else if (doc.data().plec === 'K') gender[1].checked = true;
         })
