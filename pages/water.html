@@ -37,11 +37,11 @@
             <div class="heading">DODAJ NAPÓJ</div>
             <br>
             <div class="info-center">
-                <div class="regular-row">Rodzaj: <input type="text"></div> 
-                <div class="regular-row">Ilość: <input type="text"></div> 
-                <div class="regular-row">Dodatkowy cukier: <input type="text"></div> 
+                <div class="regular-row">Rodzaj: <input type="text" id="type"></div> 
+                <div class="regular-row">Ilość: <input type="number" id="quantity"></div> 
+                <div class="regular-row">Dodatkowy cukier: <input type="number" id="sugar"></div> 
             </div>
-            <button class="send-form">DODAJ</button>
+            <button class="send-form" id="send">DODAJ</button>
         </main>
         <nav>
             <div class="option" id="water">
@@ -87,5 +87,6 @@
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
     <script src="/scripts/ui.js"></script>
+    <script src="/scripts/water.js"></script>
 </body>
 </html>

@@ -26,24 +26,24 @@
             <button class="choose">CIEMNY</button>
             <div class="heading">PODSTAWOWE DANE</div>
             <div class="info-center">
-                <div class="regular-row">Wzrost: <input type="text"></div>
-                <div class="regular-row">Waga: <input type="text"></div>
-                <div class="regular-row">Wiek: <input type="text"></div>
+                <div class="regular-row">Wzrost: <input type="number" id="height"></div>
+                <div class="regular-row">Waga: <input type="number" id="weight"></div>
+                <div class="regular-row">Wiek: <input type="number" id="age"></div>
                 <div class="regular-row">Płeć: 
                     <label for="woman" class="custom-checkbox">
                         Kobieta
-                        <input type="radio" id="woman" name="gender">
+                        <input type="radio" name="plec" class="gender">
                         <span></span>
                     </label>
                     <label for="man" class="custom-checkbox"> 
                         Mężczyzna
-                        <input type="radio" name="gender" id="man">
+                        <input type="radio" name="plec" class="gender">
                         <span></span>
                     </label>
                 </div>
             </div>
             <div class="line"></div>
-            <button class="send-form">ZMIEŃ</button>
+            <button class="send-form" id="send">ZMIEŃ</button>
         </main>
         <nav>
             <div class="option" id="water">
@@ -89,5 +89,6 @@
     <script src="/scripts/app.js"></script>
     <script src="/scripts/authenticator.js"></script>
     <script src="/scripts/ui.js"></script>
+    <script src="/scripts/settings.js"></script>
 </body>
 </html>
