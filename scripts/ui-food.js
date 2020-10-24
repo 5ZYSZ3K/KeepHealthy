@@ -1,7 +1,10 @@
 const name1 =  document.getElementById('name') || null;
+const fdate = document.getElementById('food-d');
 auth.onAuthStateChanged(function(user){
     if (user){
         userId = user.uid;
+        add();
+        add2();
     }
 })
 function add(){
@@ -15,7 +18,17 @@ function add(){
         })
     })    
 }
-add();
+function add2(){
+    db.collection(userId).doc('Posilek').collection('Posilek').onSnapshot(function(fo){
+        console.log(fo.docChanges);
+        fo.docChanges.forEach(function(fo2){
+            let option =  document.createElement('option');
+            option.innerText=fo2.id;
+            option.setAttribute('value', fo2.id);
+            fdate.appendChild(option);
+        })
+} )
+}
 document.getElementById('add-ingredient').addEventListener('click', (e) => {
     const div = document.createElement('div');
     const div1 = document.createElement('div');
