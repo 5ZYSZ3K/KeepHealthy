@@ -1,5 +1,5 @@
-const assets = 'assets-v1';
-const assetsDyn = 'assetsDyn-v1';
+const assets = 'assets-v20';
+const assetsDyn = 'assetsDyn-v20';
 
 self.addEventListener('install', e => {
     e.waitUntil(
@@ -10,7 +10,8 @@ self.addEventListener('install', e => {
                 '/css/style.css',
                 '/scripts/app.js',
                 '/manifest.json',
-                '/pages/fallback.html'
+                '/pages/fallback.html',
+                '/images/fallback.jpg'
             ]);
         })
     )
@@ -26,18 +27,20 @@ self.addEventListener('activate', e => {
     )
 })
 self.addEventListener('fetch', e => {
-    e.respondWith(
-        caches.match(e.request).then(res => res || fetch(e.request)
-            .then(fRes => caches
-                .open(assetsDyn).then(cache => {
-                    cache.put(e.request.url, fRes.clone());
-                    return fRes;
+    if(e.request.url.indexOf('firestore.googleapis.com') === -1){
+        e.respondWith(
+            caches.match(e.request).then(res => res || fetch(e.request)
+                .then(fRes => caches
+                    .open(assetsDyn).then(cache => {
+                        cache.put(e.request.url, fRes.clone());
+                        return fRes;
+                    })
+                ))
+                .catch(() => {
+                    if(e.request.url.indexOf('.htm') > -1){
+                        return caches.match('/pages/fallback.html');
+                    }
                 })
-            ))
-            .catch(() => {
-                if(e.request.url.indexOf('.htm') > -1){
-                    return caches.match('/pages/fallback.html');
-                }
-            })
-    );
+        );
+    }
 })

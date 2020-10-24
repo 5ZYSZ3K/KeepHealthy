@@ -3,9 +3,9 @@ document.getElementById('add-notify').addEventListener('click', () => {
         messaging.requestPermission()
             .then(() => messaging.getToken())
             .then((token) => {
-                db.collection(userLogged.uid).doc('Przypomnienia').set({token});
+                db.collection('Przypomnienia').doc(userLogged.uid).set({token});
             }).then(() => {
-                db.collection(userLogged.uid).doc('Przypomnienia').collection('Zwykle').add({
+                db.collection('Przypomnienia').doc(userLogged.uid).collection('Zwykle').add({
                     godzina: document.getElementById('hour').value,
                     nazwa: document.getElementById('name').value
                 })
@@ -15,7 +15,7 @@ document.getElementById('add-notify').addEventListener('click', () => {
 auth.onAuthStateChanged((user) => {
     if (user){
         userLogged = user;
-        db.collection(userLogged.uid).doc('Przypomnienia').collection('Zwykle')
+        db.collection('Przypomnienia').doc(user.uid).collection('Zwykle')
             .onSnapshot((doc) => {
                 doc.docChanges().forEach(v => {
                     if(v.type === 'added'){
@@ -31,9 +31,6 @@ auth.onAuthStateChanged((user) => {
                             div.remove();
                             db.collection(userLogged.uid).doc('Przypomnienia').collection('Zwykle').doc(v.doc.id).delete();
                         })
-                        console.log(v);
-                        console.log(v.doc.id);
-                        console.log(v.doc.data());
                         document.querySelector('#notify-list').appendChild(button);
                     }
                 })

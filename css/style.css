@@ -1,15 +1,13 @@
 @font-face {
-    font-family: 'grabstein_handschriftregular';
-    src: url('/fonts/Grabstein-HandSchrift.otf'),
-    url('/fonts/grabstein-handschrift-webfont.woff') format('woff'),
-    url('/fonts/grabstein-handschrift-webfont.woff2') format('woff2');
+    font-family: 'Sage Sans';
+    src: url('/fonts/sagesans-Regular.ttf');
 }
 :root{
     background-color: #FFF557;
-    font-family: grabstein_handschriftregular;
+    font-family: Sage Sans;
 }
 input, button, select{
-    font-family: grabstein_handschriftregular;
+    font-family: Sage Sans;
 }
 form{
     display: block;

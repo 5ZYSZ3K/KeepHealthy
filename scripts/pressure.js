@@ -7,9 +7,7 @@ const p1 = document.querySelector('.info-center p:nth-child(2)');
 const p2 = document.querySelector('.info-center p:nth-child(3)');
 const p3 = document.querySelector('.info-center p:nth-child(4)');
 select.addEventListener('change', (e) => {
-    console.log(e);
     measurementsArray.forEach(v => {
-        console.log(select.value, v.name)
         if(select.value === v.name){
             p1.innerText = "Godzina: "+v.time;
             p2.innerText = "Puls: "+v.pulse;
