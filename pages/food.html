@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#E4C800">
+    <title>Keep Healthy - food</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/images/icons/icon-96x96.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#E4C800">
+</head>
+<body>
+    <div id="container">
+        <div id="hamburger">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </div>
+        <main>
+            <div class="heading">HISTORIA</div>
+            <br>
+            <div class="info-half" id="today">
+                <p class="last">Dzisiaj</p>
+                <p>Kalorie: kcal</p>
+                <p>Bialko: g</p>
+                <p>Tłuszcz: g</p>
+                <p>Węglowodany: g</p>
+            </div>
+            <div class="info-half" id="food-field">
+                <select name="food-date" id="food-date">
+
+                </select>
+                <p>Kalorie: kcal</p>
+                <p>Bialko: g</p>
+                <p>Tłuszcz: g</p>
+                <p>Węglowodany: g</p>
+            </div>
+            <div class="line"></div>
+            <div class="heading">DODAJ POSIŁEK</div>
+            <br>
+            <div class="info-center">
+                <div class="regular-row">Nazwa: <input type="text" id="name"></div> 
+                <div class="regular-row">
+                    <div class="display-properly">
+                        <div class="singular-row">
+                        Ilość (g): <input type="number" class="double-row gram"> 
+                        </div>
+                        <div class="singular-row">
+                            <span>Składnik:</span> 
+                            <select name="food-type" class="double-row food-type">
+
+                            </select>
+                        </div>
+                    </div>
+                    <button id="add-ingredient" class="button-inline">Dodaj kolejny składnik</button>
+                </div> 
+            </div>
+            <button class="send-form end-btn" id="send">DODAJ</button>
+        </main>
+        <nav>
+            <div class="option" id="water">
+                <a href="/pages/water.html"></a>
+            </div>
+            <div class="option" id="notifications">
+                <a href="/pages/notifications.html" id="notifications"></a>
+            </div>
+            <div class="option v2" id="authors">
+                <a href="/pages/authors.html" id="authors"></a>
+            </div>
+            <div class="option" id="food">
+                <a href="/pages/food.html" id="food"></a>
+            </div>
+            <div class="option" id="pressure">
+                <a href="/pages/pressure.html" id="pressure"></a>
+            </div>
+            <div class="option v2" id="settings">
+                <a href="/pages/settings.html" id="settings"></a>
+            </div>
+        </nav>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+    <script>
+        if (!firebase.apps.length) {
+            var firebaseConfig = {
+                apiKey: "AIzaSyD9zzJRxYMuIytUyp6FSJRroOnkDsoDOGQ",
+                authDomain: "keephealthy-b37bb.firebaseapp.com",
+                databaseURL: "https://keephealthy-b37bb.firebaseio.com",
+                projectId: "keephealthy-b37bb",
+                storageBucket: "keephealthy-b37bb.appspot.com",
+                messagingSenderId: "288571643327",
+                appId: "1:288571643327:web:0643e976859ed2ea647d0a",
+                measurementId: "G-M0ZC195KW6"
+            };
+            firebase.initializeApp(firebaseConfig);
+        }
+        firebase.analytics();
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+    </script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/authenticator.js"></script>
+    <script src="/scripts/ui.js"></script>
+    <script src="/scripts/ui-food.js"></script>
+</body>
+</html>
