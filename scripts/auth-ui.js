@@ -13,10 +13,12 @@ Array.from(document.getElementsByClassName('change')).map(el => {
 window.addEventListener('resize', () => {
     if(window.innerWidth > 1100){
         document.querySelector('#login').style.display = "block";
-        document.querySelector('#main').style.display = "block";
+        document.querySelector('#register').style.display = "block";
     }
     else {
-        document.querySelector('#login').removeAttribute('style');
-        document.querySelector('#login').removeAttribute('style');
+        if(document.getElementById('login').style.display === "block" || !document.getElementById('login').style.display){
+            document.querySelector('#login').removeAttribute('style');
+            document.querySelector('#register').removeAttribute('style');
+        }
     }
 })

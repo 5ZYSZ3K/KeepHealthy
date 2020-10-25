@@ -8,5 +8,21 @@ admin.initializeApp(functions.config().firebase);
 //   functions.logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
 // });
-
-//exports.sendNotifications = functions.firestore.collection('')
+let timeoutObject = {}
+exports.sendNotifications = functions.firestore.document('Przypomnienia/{notify}')
+    .onWrite((change, context) => {
+        if(!change.after.data()) return;
+        console.info(change.after.data());
+        const payload = {
+            notification: {
+                title: change.after.data().nazwa,
+                body: "Przypomnienie na życzenie",
+                icon: 'https://keephealthy-b37bb.web.app/images/icons/icon-72x72.png',
+                click_action: 'https://keephealthy-b37bb.web.app/'
+            }
+        }
+        return admin.messaging().sendToDevice([change.after.data().token], payload).then(result => {
+            console.log("Notification sent!");
+            return null;
+        });
+    })

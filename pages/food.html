@@ -42,16 +42,17 @@
             <div class="info-center">
                 <div class="regular-row">Nazwa: <input type="text" id="name"></div> 
                 <div class="regular-row">
-                    <div class="singular-row">
-                       Ilość (g): <input type="number" class="double-row gram"> 
-                    </div>
-                    <div class="singular-row">
-                        <span>Składnik:</span> 
-                        <select name="food-type" class="double-row food-type">
+                    <div class="display-properly">
+                        <div class="singular-row">
+                        Ilość (g): <input type="number" class="double-row gram"> 
+                        </div>
+                        <div class="singular-row">
+                            <span>Składnik:</span> 
+                            <select name="food-type" class="double-row food-type">
 
-                        </select>
+                            </select>
+                        </div>
                     </div>
-                    
                     <button id="add-ingredient" class="button-inline">Dodaj kolejny składnik</button>
                 </div> 
             </div>
@@ -83,17 +84,19 @@
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
     <script>
-        var firebaseConfig = {
-            apiKey: "AIzaSyD9zzJRxYMuIytUyp6FSJRroOnkDsoDOGQ",
-            authDomain: "keephealthy-b37bb.firebaseapp.com",
-            databaseURL: "https://keephealthy-b37bb.firebaseio.com",
-            projectId: "keephealthy-b37bb",
-            storageBucket: "keephealthy-b37bb.appspot.com",
-            messagingSenderId: "288571643327",
-            appId: "1:288571643327:web:0643e976859ed2ea647d0a",
-            measurementId: "G-M0ZC195KW6"
-        };
-        firebase.initializeApp(firebaseConfig);
+        if (!firebase.apps.length) {
+            var firebaseConfig = {
+                apiKey: "AIzaSyD9zzJRxYMuIytUyp6FSJRroOnkDsoDOGQ",
+                authDomain: "keephealthy-b37bb.firebaseapp.com",
+                databaseURL: "https://keephealthy-b37bb.firebaseio.com",
+                projectId: "keephealthy-b37bb",
+                storageBucket: "keephealthy-b37bb.appspot.com",
+                messagingSenderId: "288571643327",
+                appId: "1:288571643327:web:0643e976859ed2ea647d0a",
+                measurementId: "G-M0ZC195KW6"
+            };
+            firebase.initializeApp(firebaseConfig);
+        }
         firebase.analytics();
         const db = firebase.firestore();
         const auth = firebase.auth();

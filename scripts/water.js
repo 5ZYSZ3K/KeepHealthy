@@ -1,41 +1,93 @@
-const type =  document.getElementById('type') || null;
 const quantity =  document.getElementById('quantity') || null;
 const sugar =  document.getElementById('sugar') || null;
 const wdate = document.getElementById('water-date');
+const select = document.getElementById('drink-type');
+const waterArray = [];
+db.collection('informacje').doc('informacje_o_napojach')
+    .onSnapshot(doc => {
+        select.innerHTML = "";
+        const keys = Object.keys(doc.data());
+        keys.forEach(key => {
+            const option = document.createElement('option');
+            option.innerText = key;
+            select.appendChild(option);
+        })
+    })
 auth.onAuthStateChanged(function(user){
     if (user){
         userId = user.uid;
-        add();
+        db.collection(userId).doc('Woda')
+            .onSnapshot(doc => {
+                let todaySugarSum = 0;
+                let todayWaterSum = 0;
+                let sugarSum = 0;
+                let waterSum = 0;
+                if (doc.data() != null){
+                    waterArray.splice(0, waterArray.length);
+                    const keys = Object.keys(doc.data());
+                    keys.forEach(key => {
+                        let option =  document.createElement('option');
+                        option.innerText=key;
+                        wdate.appendChild(option);
+                        waterArray.push({
+                            name: key,
+                            content: doc.data()[key]
+                        })
+                    });
+                    waterArray.forEach(day => {
+                        if(day.name == wdate.value){
+                            day.content.forEach(drink => {
+                                waterSum += parseFloat(drink.ilosc);
+                                sugarSum += parseFloat(drink.cukier);
+                            })
+                        }
+                        if(day.name== date){
+                            day.content.forEach(drink => {
+                                todayWaterSum += parseFloat(drink.ilosc);
+                                todaySugarSum += parseFloat(drink.cukier);
+                            })
+                        }
+                    })
+                }
+                document.getElementById('lit').innerText = waterSum;
+                document.getElementById('gram').innerText = sugarSum;
+                document.getElementById('tlit').innerText = todayWaterSum;
+                document.getElementById('tgram').innerText = todaySugarSum;
+            })
     }
 })
-function add(){
-    db.collection(userId).doc('Woda').collection('Woda').get().then(function(water){
-        water.forEach(function(wat) {
-            let option =  document.createElement('option');
-                option.innerText=wat.id;
-                option.setAttribute('value', wat.id);
-                wdate.appendChild(option);
-        });
-        db.collection(userId).doc('Woda').collection('Woda').doc(wdate.value).onSnapshot(function(get){
-            document.getElementById('lit').textContent = get.data().ilosc;
-            document.getElementById('gram').textContent = get.data().cukier;
-        })
-        db.collection(userId).doc('Woda').collection('Woda').doc(date).onSnapshot(function(get){
-            document.getElementById('tlit').textContent = get.data() ? get.data().ilosc : "";
-            document.getElementById('tgram').textContent = get.data() ? get.data().cukier : "";
-        })
-    })
-}
 wdate.addEventListener('change',function(){
-    db.collection(userId).doc('Woda').collection('Woda').doc(wdate.value).onSnapshot(function(get){
-        document.getElementById('lit').textContent = get.data().ilosc;
-        document.getElementById('gram').textContent = get.data().cukier;
+    let sugarSum = 0;
+    let waterSum = 0;
+    waterArray.forEach(day => {
+        if(day.name == wdate.value){
+            day.content.forEach(drink => {
+                waterSum += parseFloat(drink.ilosc);
+                sugarSum += parseFloat(drink.cukier);
+            })
+        }
     })
+    document.getElementById('lit').innerText = waterSum;
+    document.getElementById('gram').innerText = sugarSum;
 })
 document.getElementById('send').addEventListener('click', function(){
-    db.collection(userId).doc('Woda').collection('Woda').doc(date).set({
-        rodzaj: type.value,
-        ilosc: quantity.value,
-        cukier: sugar.value
-    });
+    let waterObject = {};
+    waterArray.forEach(day => {
+        waterObject[day.name] = day.content;
+    })
+    if(waterObject[date]){
+        waterObject[date].push({
+            rodzaj: select.value,
+            ilosc: quantity.value,
+            cukier: sugar.value
+        });
+    }
+    else {
+        waterObject[date] = [{
+            rodzaj: select.value,
+            ilosc: quantity.value,
+            cukier: sugar.value
+        }];
+    }
+    db.collection(userId).doc('Woda').set(waterObject);
 })

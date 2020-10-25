@@ -9,17 +9,29 @@ if(signupForm){
     signupForm.addEventListener('submit', e => {
         e.preventDefault();
         userRegistered = true;
-
+        const mail = signupForm.createMail.value;
+        signupForm.createMail.value = 'Proszę czekać';
         if(signupForm.createPass.value === signupForm.repeated.value){
-            auth.createUserWithEmailAndPassword(signupForm.createMail.value, signupForm.createPass.value).then(cred => {
+            auth.createUserWithEmailAndPassword(mail, signupForm.createPass.value).then(cred => {
+                window.location = '/pages/settings.html';
+            }).catch(() => {
+                signupForm.createMail.value = "Błąd rejestracji";
             })
+        }
+        else {
+            signupForm.createMail.value = "hasła nie są identyczne";
         }
     });
 }
 if(signinForm){
     signinForm.addEventListener('submit', e => {
         e.preventDefault();
-        auth.signInWithEmailAndPassword(signinForm.mail.value, signinForm.pass.value).then(cred => {
+        const mail = signinForm.mail.value;
+        signinForm.mail.value = 'Proszę czekać';
+        auth.signInWithEmailAndPassword(mail, signinForm.pass.value).then(cred => {
+            window.location = '/pages/settings.html';
+        }).catch(() => {
+            signupForm.createMail.value = "Błąd logowania";
         })
     });
 }

@@ -263,6 +263,9 @@ span{
     color: black;
     display: inline-block;
 }
+.display-properly{
+    overflow: hidden;
+}
 .send-form{
     border: 3px solid #4DA1A9;
     background-color: #99D9EA;

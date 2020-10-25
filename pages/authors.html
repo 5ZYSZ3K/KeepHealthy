@@ -18,7 +18,16 @@
             <span class="third"></span>
         </div>
         <main>
-            <button id="logout">Log out</button>
+            <div class="line"></div>
+            <div class="heading">AUTORZY</div>
+            <div class="line"></div>
+            <div class="info-center">
+                <div class="regular-row">&bull; Paweł Poręba - Programista</div>
+                <div class="regular-row">&bull; Dawid Ormanty - Programista</div>
+                <div class="regular-row">&bull; Dominik Kulig - Layout designer</div>
+                <div class="regular-row">&bull; Magdalena Sekuła - Projektant aplikacji </div>
+                <div class="regular-row">&bull; Ewa Śmigowska - Projektant bazy danych</div>
+            </div>
         </main>
         <nav>
             <div class="option" id="water">
@@ -46,17 +55,19 @@
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
     <script>
-        var firebaseConfig = {
-            apiKey: "AIzaSyD9zzJRxYMuIytUyp6FSJRroOnkDsoDOGQ",
-            authDomain: "keephealthy-b37bb.firebaseapp.com",
-            databaseURL: "https://keephealthy-b37bb.firebaseio.com",
-            projectId: "keephealthy-b37bb",
-            storageBucket: "keephealthy-b37bb.appspot.com",
-            messagingSenderId: "288571643327",
-            appId: "1:288571643327:web:0643e976859ed2ea647d0a",
-            measurementId: "G-M0ZC195KW6"
-        };
-        firebase.initializeApp(firebaseConfig);
+        if (!firebase.apps.length) {
+            var firebaseConfig = {
+                apiKey: "AIzaSyD9zzJRxYMuIytUyp6FSJRroOnkDsoDOGQ",
+                authDomain: "keephealthy-b37bb.firebaseapp.com",
+                databaseURL: "https://keephealthy-b37bb.firebaseio.com",
+                projectId: "keephealthy-b37bb",
+                storageBucket: "keephealthy-b37bb.appspot.com",
+                messagingSenderId: "288571643327",
+                appId: "1:288571643327:web:0643e976859ed2ea647d0a",
+                measurementId: "G-M0ZC195KW6"
+            };
+            firebase.initializeApp(firebaseConfig);
+        }
         firebase.analytics();
         const db = firebase.firestore();
         const auth = firebase.auth();

@@ -18,28 +18,47 @@ select.addEventListener('change', (e) => {
 auth.onAuthStateChanged(function(user){
     if (user){
         userId = user.uid;
-        db.collection(userId).doc('Cisnienie').collection('Cisnienie')
+        db.collection(userId).doc('Cisnienie')
             .onSnapshot(doc => {
-                doc.docChanges().forEach(v => {
-                    if(v.type='added'){
-                        const option = document.createElement('option');
-                        option.innerText=v.doc.id;
-                        select.appendChild(option);
-                        measurementsArray.push({
-                            name: v.doc.id,
-                            time: v.doc.data().godzina,
-                            pulse: v.doc.data().puls,
-                            pressure: v.doc.data().cisnienie
-                        })
-                    }
+                measurementsArray.splice(0, measurementsArray.length)
+                const keys = Object.keys(doc.data());
+                keys.forEach(key => {
+                    const option = document.createElement('option');
+                    option.innerText=key;
+                    select.appendChild(option);
+                    measurementsArray.push({
+                        name: key,
+                        time: doc.data()[key].godzina,
+                        pulse: doc.data()[key].puls,
+                        pressure: doc.data()[key].cisnienie
+                    })
                 })
             })
     }
 })
 document.getElementById('send').addEventListener('click', function(){
-    db.collection(userId).doc('Cisnienie').collection('Cisnienie').doc(date).set({
-        godzina: tim.value,
-        cisnienie: pressure.value,
-        puls: pulse.value
-    });
+    const pressureCheck = pressure.value.split('/');
+    if(pressureCheck.length !== 2 || isNaN(pressureCheck[0]) || isNaN(pressureCheck[1])){
+        pressure.value="Niewłaściwa wartość!"
+    }
+    else {
+        let measurementsObject = {};
+        measurementsArray.forEach(measure => {
+            measurementsObject[measure.name] = {
+                godzina: measure.time,
+                puls: measure.pulse,
+                cisnienie: measure.pressure
+            }
+        })
+        let objName = date;
+        if(Object.keys(measurementsObject).includes(date)){
+            objName+=","+tim.value;
+        }
+        measurementsObject[objName] = {
+            godzina: tim.value,
+            cisnienie: pressure.value,
+            puls: pulse.value
+        }
+        db.collection(userId).doc('Cisnienie').set(measurementsObject);
+    }
 })
